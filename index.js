@@ -9,25 +9,39 @@
 //. time will be global variable
 //code block will be global variable
 //use .this with jQuery so codeblock understands it time frame
-//9 function compareTime(){
-    // 
-}
+//9. function compareTime(){
+    
+
+var time = moment().format('MMMM Do YYYY, h:mm:ss a')
 
 
-var currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
-$("#currentDay").text(currentDay);
+$("#currentDay").text(moment().format('MMMM Do YYYY, h:mm: a'));
+// console.log(time);
 
+var saveBtn = $(".saveBtn")
 
-var time = moment.js
+$(".saveBtn").on("click", function(){
+    //grab data hour
+    //grab userInput
+    //save them to local storage
+    var dataHour = $(this).attr("data-hour");
+    var inputField = $("#" + dataHour).val();
+    console.log(inputField);
+    localStorage.setItem(dataHour,inputField);
 
+})
+
+var timeSlots = [9, 10, 11, 12 , 1, 2, 3,4,5];
+
+// timeSlots = $(".schedule");
+// var time = moment.js
 
 function compareTime() {
 
-    for (var i = 0; i < timeBlock.length; i++) {
+    for (var i = 0; i < timeSlots.length; i++) {
 
         if(timeBlock <= time) {
             $("#9row").addClass("past")
         }
     }
-    
-}
+};  
