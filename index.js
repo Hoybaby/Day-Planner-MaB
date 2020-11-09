@@ -12,13 +12,17 @@
 //9. function compareTime(){
     
 
-var time = moment().format('MMMM Do YYYY, h:mm:ss a')
-
+var time = moment().format('HH')
+var timeBlocks = document.getElementsByClassName("schedule ")
+var currentBlock = (moment().format('HH'));
+var timeSlots = [9,10,11,12,1,2,3,4,5];
+// currentBlock = currentBlock - 9;
+var saveBtn = $(".saveBtn")
 
 $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm: a'));
 // console.log(time);
 
-var saveBtn = $(".saveBtn")
+
 
 $(".saveBtn").on("click", function(){
     //grab data hour
@@ -31,17 +35,48 @@ $(".saveBtn").on("click", function(){
 
 })
 
-var timeSlots = [9, 10, 11, 12 , 1, 2, 3,4,5];
-
 // timeSlots = $(".schedule");
 // var time = moment.js
 
-function compareTime() {
+// for (var i = 0; i < timeSlots.length; i++) {
+//     var getItem = localStorage.getItem(timeSlots[i]);
+//     // form - control
+//     $("#" + timeSlots[i]).val(dataHour);
+// }
 
-    for (var i = 0; i < timeSlots.length; i++) {
 
-        if(timeBlock <= time) {
-            $("#9row").addClass("past")
+// function compareTime() {
+
+    for (var i = 0; i <= 9; i++) {
+
+    var currentHour = parseInt(time)
+    var timeSlot = $(".schedule") 
+
+        if (currentHour === timeSlot) {
+            timeSlot.addClass("present");
+        } else if(currentHour < timeSlot) {
+            timeSlot.addClass("past");
+        } else {
+            timeSlot.addClass("future");
         }
     }
-};  
+
+    // $(".schedule").each(function (){
+
+    //     var timeSlot = parseInt($(this).prev().attr("data-hour"))
+
+    //     if ( timeSlot == time) {
+    //         $(this).addClass("present");
+    //     } else if ( timeSlot < time) {
+    //         $(this).addClass("past");
+    //     } else {
+    //         $(this).addClass("future");
+    //     }
+    // })
+
+
+//  if ($(".") === currentBlock) {
+//             timeBlocks[i].a
+//         }
+//     // }
+// };  
