@@ -22,7 +22,12 @@ var saveBtn = $(".saveBtn")
 $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm: a'));
 // console.log(time);
 
+// $("*[#]").each(function(){
+//     var dataHour = $(this).attr("data-hour");
+//     var inputField = $("#" + dataHour).val();
+//     $(this).val(localStorage.getItem(inputField + $(this).attr("data-hour")));
 
+// });
 
 $(".saveBtn").on("click", function(){
     //grab data hour
@@ -34,6 +39,15 @@ $(".saveBtn").on("click", function(){
     localStorage.setItem(dataHour,inputField);
 
 })
+
+
+function renderPlans() {
+
+    var dataHour = $(this).attr("data-hour")
+    for (var i = 0; i <= 12; i++) {
+    $(dataHour).val(localStorage.getItem(i));
+    }
+  };
 
 // timeSlots = $(".schedule");
 // var time = moment.js
@@ -50,14 +64,18 @@ $(".saveBtn").on("click", function(){
     for (var i = 0; i <= 9; i++) {
 
     var currentHour = parseInt(time)
-    var timeSlot = $(".schedule") 
+    var timeSlot = $("data-hour").val();
 
-        if (currentHour === timeSlot) {
-            timeSlot.addClass("present");
-        } else if(currentHour < timeSlot) {
-            timeSlot.addClass("past");
+        if (timeSlot < currentHour) {
+            $(this).addClass("past");
+            
+        } else if (timeSlot === currentHour) {
+            $(this).removeClass("past");
+            $(this).addClass("present");
         } else {
-            timeSlot.addClass("future");
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).addClass("future");
         }
     }
 
