@@ -28,11 +28,21 @@ $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm: a'));
 //     $(this).val(localStorage.getItem(inputField + $(this).attr("data-hour")));
 
 // });
+$("#9").val(localStorage.getItem("9"));
+
+
 
 $(".saveBtn").on("click", function(){
     //grab data hour
     //grab userInput
-    //save them to local storage
+    //save them to local storag
+    // var value = $(this).siblings(".schedule").val();
+    // var time = $(this).parent().attr("id");
+
+    // localStorage.setItem(time, value)
+
+
+
     var dataHour = $(this).attr("data-hour");
     var inputField = $("#" + dataHour).val();
     console.log(inputField);
@@ -42,42 +52,46 @@ $(".saveBtn").on("click", function(){
 
 
 function renderPlans() {
-
-    var dataHour = $(this).attr("data-hour")
-    for (var i = 0; i <= 12; i++) {
-    $(dataHour).val(localStorage.getItem(i));
+    for (var i = 0; i <= time; i++) {
+        $("#" + timeSlots[i]).val(localStorage.getItem(timeSlots[i]));
     }
-  };
-
-// timeSlots = $(".schedule");
-// var time = moment.js
-
-// for (var i = 0; i < timeSlots.length; i++) {
-//     var getItem = localStorage.getItem(timeSlots[i]);
-//     // form - control
-//     $("#" + timeSlots[i]).val(dataHour);
-// }
+};
 
 
-// function compareTime() {
+function compareTime(){
 
-    for (var i = 0; i <= 9; i++) {
+
+    
 
     var currentHour = parseInt(time)
-    var timeSlot = $("data-hour").val();
-
-        if (timeSlot < currentHour) {
+    
+    timeSlots.forEach(function(hour){ 
+        console.log(timeSlots)
+        console.log(hour)
+       if (hour < currentHour) {
             $(this).addClass("past");
-            
-        } else if (timeSlot === currentHour) {
+           
+        } else if (hour === currentHour) {
             $(this).removeClass("past");
             $(this).addClass("present");
         } else {
             $(this).removeClass("past");
             $(this).removeClass("present");
             $(this).addClass("future");
-        }
+        } 
+    })
+
+
+        
     }
+
+    
+
+renderPlans();
+
+
+
+
 
     // $(".schedule").each(function (){
 
