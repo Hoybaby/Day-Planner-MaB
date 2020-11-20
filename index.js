@@ -15,7 +15,7 @@
 var time = moment().format('HH')
 var timeBlocks = document.getElementsByClassName("schedule ")
 var currentBlock = (moment().format('HH'));
-var timeSlots = [9,10,11,12,1,2,3,4,5];
+var timeSlots = [9,10,11,12,13,14,15,16,17];
 // currentBlock = currentBlock - 9;
 var saveBtn = $(".saveBtn")
 
@@ -52,7 +52,7 @@ $(".saveBtn").on("click", function(){
 
 
 function renderPlans() {
-    for (var i = 0; i <= time; i++) {
+    for (var i = 0; i <= timeSlots.length; i++) {
         $("#" + timeSlots[i]).val(localStorage.getItem(timeSlots[i]));
     }
 };
@@ -60,24 +60,24 @@ function renderPlans() {
 
 function compareTime(){
 
-
-    
-
     var currentHour = parseInt(time)
     
     timeSlots.forEach(function(hour){ 
-        console.log(timeSlots)
+        
         console.log(hour)
+        console.log(currentHour)
+        // $("#" + hour)
+
        if (hour < currentHour) {
-            $(this).addClass("past");
-           
+            $("#" + hour).addClass("past");
+        
         } else if (hour === currentHour) {
-            $(this).removeClass("past");
-            $(this).addClass("present");
+            $("#" + hour).removeClass("past");
+            $("#" + hour).addClass("present");
         } else {
-            $(this).removeClass("past");
-            $(this).removeClass("present");
-            $(this).addClass("future");
+            $("#" + hour).removeClass("past");
+            $("#" + hour).removeClass("present");
+            $("#" + hour).addClass("future");
         } 
     })
 
@@ -89,6 +89,7 @@ function compareTime(){
 
 renderPlans();
 
+compareTime();
 
 
 
