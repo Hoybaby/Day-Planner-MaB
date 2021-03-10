@@ -91,25 +91,3 @@ renderPlans();
 
 compareTime();
 
-
-
-
-    // $(".schedule").each(function (){
-
-    //     var timeSlot = parseInt($(this).prev().attr("data-hour"))
-
-    //     if ( timeSlot == time) {
-    //         $(this).addClass("present");
-    //     } else if ( timeSlot < time) {
-    //         $(this).addClass("past");
-    //     } else {
-    //         $(this).addClass("future");
-    //     }
-    // })
-
-
-//  if ($(".") === currentBlock) {
-//             timeBlocks[i].a
-//         }
-//     // }
-// };  
