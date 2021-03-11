@@ -68,7 +68,7 @@ function compareTime(){
         console.log(currentHour)
         // $("#" + hour)
 
-       if (hour < currentHour) {
+        if (hour < currentHour) {
             $("#" + hour).addClass("past");
         
         } else if (hour === currentHour) {
@@ -91,3 +91,4 @@ renderPlans();
 
 compareTime();
 
+Clamshells2.attr
