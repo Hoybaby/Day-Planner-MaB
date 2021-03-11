@@ -22,8 +22,8 @@ With this project, an individual can input task for the current day depending on
 Packages required to run this program are: None
 
 
-## Usage
-Examples of how to use this program: https://github.com/Hoybaby/Day-Planner-MaB
+## Deployable Link
+The deplyoable link for this program is : https://hoybaby.github.io/Day-Planner-MaB/. 
 
 
 ## License
